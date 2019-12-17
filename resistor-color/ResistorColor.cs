@@ -1,21 +1,23 @@
 ﻿using System;
+using System.Collections.Generic;
+
+//Using generic C# collections now instead of arrays, thanks to help
+//from mentor MarkusReynolds1989
 
 public static class ResistorColor
 {
     public static int ColorCode(string color)
     {
-        string[] colorNames = {"black", "brown", "red", "orange",
-            "yellow", "green", "blue", "violet", "grey", "white" };
-
-        for (int i = 0; i < 10; i++)
+        if(Colors().Contains(color))
         {
-            if (color == colorNames[i])
-                return i;
+            return Colors().IndexOf(color);
         }
 
-        return -1; //error
+        else
+        {
+            return -1; //error
+        }
     }
 
-
-    public static string[] Colors() => new string[] {"black", "brown", "red", "orange", "yellow", "green", "blue", "violet", "grey", "white"};
+    public static List<string> Colors() => new List<string> {"black", "brown", "red", "orange", "yellow", "green", "blue", "violet", "grey", "white"};
 }
